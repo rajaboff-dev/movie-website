@@ -1,11 +1,11 @@
 import {useQuery} from "@tanstack/react-query";
 import MovieService from "@/app/services/MovieService";
 
-const getVideos = (id) => {
+const useGetVideos = (id) => {
   return useQuery({
     queryKey: ['getVideos', id],
     queryFn: MovieService.getVideos
   });
 }
 
-export default getVideos;
+export default useGetVideos;

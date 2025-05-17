@@ -1,8 +1,8 @@
 'use client'
 import React, {useEffect, useState} from "react";
 import {useParams} from "next/navigation";
-import getMovie from "@/app/hooks/queries/getMovie";
-import getVideos from "@/app/hooks/queries/getVideos";
+import useGetMovie from "@/app/hooks/queries/useGetMovie";
+import useGetVideos from "@/app/hooks/queries/useGetVideos";
 import getPosterPathURL from "@/app/utils/getPosterPathURL";
 import {TbArrowRight, TbCalendarWeek, TbClock, TbPlayerPlayFilled, TbStar} from "react-icons/tb";
 import useGenreStore from "@/app/store/genres";
@@ -13,9 +13,9 @@ import useGetRecentlyMovies from "@/app/hooks/queries/useGetRecentlyMovies";
 
 export default function MovieDetailsPage() {
   const {id} = useParams()
-  const data = getMovie(id)
+  const data = useGetMovie(id)
   const { data: movies, isLoading: isRecentlyMoviesLoading } = useGetRecentlyMovies()
-  const videos = getVideos(id)
+  const videos = useGetVideos(id)
 
   console.log('movies', movies)
   console.log('videos', videos)
