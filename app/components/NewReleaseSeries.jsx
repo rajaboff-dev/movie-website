@@ -9,12 +9,12 @@ import Link from "next/link";
 function NewReleaseSeries() {
   const {data} = useGetRecentlyMovies()
   return (
-    <div className='px-[160px] pt-[72px] text-white flex flex-col items-start justify-center gap-5'>
+    <div className='px-[160px] pt-[72px] text-white flex flex-col items-start justify-center gap-5 max-xl:px-[20px]'>
       <div className='flex items-center justify-between w-full'>
         <h1 className='font-bold text-[24px]'>New Release - Series</h1>
         <a href="" className='flex items-center gap-3 font-semibold text-[24px] opacity-50'>View all <TbArrowRight/></a>
       </div>
-      <div className='flex items-center justify-between gap-[33px] w-full'>
+      <div className='flex items-center justify-between gap-[33px] w-full max-xl:flex-wrap max-xl:justify-center'>
         {data && data.results && data.results.slice(8, 12).map((item) => (
           <Link className='w-[352px] text-white' key={item.id} href={`/movie/${item.id}`}>
             <div className='max-h-[293px] h-[293px] relative top-0'>
